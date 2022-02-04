@@ -1,0 +1,50 @@
+package com.atcs.user;
+import java.util.Scanner;
+
+public class CountLettersInArray {
+	
+	 
+	    static Scanner sc=new Scanner(System.in);
+	
+            static final int n = 200;
+	    
+	    static void numberOfChar(String str)
+		{
+			
+			//System.out.println("Please enter char array size: ");
+			
+			int count[] = new int[n];
+
+			int len = str.length();
+
+			// Initialize count array index
+			for (int i = 0; i < len; i++)
+				count[str.charAt(i)]++;
+
+			// Create an array of given String size
+			char ch[] = new char[str.length()];
+			for (int i = 0; i < len; i++) {
+				ch[i] = str.charAt(i);
+				int charfound = 0;
+				for (int j = 0; j <= i; j++) {
+
+					// If matches found
+					if (str.charAt(i) == ch[j])
+						charfound++;
+				}
+
+				if (charfound == 1)
+					System.out.println("no. of occurence of " + str.charAt(i) + " is: " + count[str.charAt(i)]);
+			}
+		}
+
+		
+		public static void main(String[] args)
+		{
+			System.out.println("Please enter your message: ");
+			String str=sc.nextLine();
+			numberOfChar(str);
+		}
+	}
+
+
